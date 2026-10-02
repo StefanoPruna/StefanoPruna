@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stefano Pruna · Gameplay &amp; Simulation Programmer</title>
+<meta name="description" content="Stefano Pruna, Unreal Engine 5 and C++ gameplay and simulation programmer based in Melbourne, Australia.">
+<meta property="og:title" content="Stefano Pruna · Gameplay &amp; Simulation Programmer">
+<meta property="og:description" content="Unreal Engine 5 and C++ gameplay systems, animation, UI architecture and automated testing.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Public+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <span class="brand">Stefano Pruna</span>
+  <nav aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#method">How I work</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+<div class="ticker" aria-hidden="true"><div>Open to work · Australia · on site, hybrid or remote · UE5 · C++ · Open to work · Australia · on site, hybrid or remote · UE5 · C++ · Open to work · Australia · on site, hybrid or remote · UE5 · C++ · Open to work · Australia · on site, hybrid or remote · UE5 · C++ · Open to work · Australia · on site, hybrid or remote · UE5 · C++ · Open to work · Australia · on site, hybrid or remote · UE5 · C++ · Open to work · Australia · on site, hybrid or remote · UE5 · C++ · Open to work · Australia · on site, hybrid or remote · UE5 · C++ · </div></div>
+
+<section class="hero wrap">
+  <h1>Gameplay<br>program<span>mer.</span></h1>
+  <div class="row">
+    <p class="lede">I build real time systems in <strong>Unreal Engine 5 and C++</strong> that other people can extend: character movement and animation, interaction, UI architecture and automated testing. I read the engine source when the docs run out, and I prove a fix before shipping it.</p>
+    <div class="side">
+      <div class="facts">
+        <span>UE5 · C++ · Blueprints</span>
+        <span>BIT, Game Programming</span>
+        <span>Docklands, Melbourne</span>
+        <span>Australian citizen</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#work">See the work ↓</a>
+        <a class="btn" href="https://loske.itch.io" target="_blank" rel="noopener">Play on itch.io ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="section">
+  <div class="wrap">
+    <div class="head big">
+      <div class="title">
+        <p class="eyebrow">Featured project · 01</p>
+        <h2>Oceans Palette</h2>
+      </div>
+      <p>An underwater exploration game made by an indie team. I am the C++ gameplay programmer, responsible for character control, animation, UI architecture and core gameplay systems.</p>
+    </div>
+    <dl class="meta">
+      <div><dt>Role</dt><dd>C++ Gameplay Programmer</dd></div>
+      <div><dt>Engine</dt><dd>Unreal Engine 5</dd></div>
+      <div><dt>Since</dt><dd>November 2025</dd></div>
+      <div><dt>Team</dt><dd>Indie, remote</dd></div>
+    </dl>
+
+    <div class="systems">
+      <article class="system">
+        <div class="body">
+          <p class="mono"><span class="badge">System 01</span> Gameplay</p>
+          <h3>Coral grow system</h3>
+          <p>Players pick up a small piece of coral, place it in the world and watch it grow into a full coral over time. I built it around an extensible item base so every future coral species plugs into the same pipeline.</p>
+          <ul>
+            <li>Reusable coral item base shared by all coral types</li>
+            <li>Pickup and placement, on a coral base or freely in the world</li>
+            <li>Growth timer that swaps the small piece for a fully grown one</li>
+            <li>New species need one subclass and one value: their growth duration</li>
+          </ul>
+          <div class="tags"><span>C++</span><span>Inheritance</span><span>Gameplay architecture</span></div>
+        </div>
+        <div class="viewport" role="img" aria-label="Placeholder for coral grow system clip">
+          <div class="hud"><span>▶ coral-grow.mp4</span><span>00:30</span></div>
+          <div class="slot"><strong>Add a 30 second clip</strong><span>Pick up coral, place it, speed up the timer to show it grow.</span></div>
+        </div>
+      </article>
+
+      <article class="system">
+        <div class="body">
+          <p class="mono"><span class="badge">System 02</span> Animation</p>
+          <h3>Swimming and water detection</h3>
+          <p>Retargeting Mixamo animations (Y+ forward) onto our character (X+ forward) worked on land but broke for swimming, where the horizontal body pose compounds the rotation problem. I rebuilt the retargeting pipeline and the water logic around it.</p>
+          <ul>
+            <li>Clean IK Rigs and a custom IK Retargeter built from scratch</li>
+            <li>Axis conversion fixed through retarget pose offsets</li>
+            <li>Water detection with Physics Volume overlap checks and hysteresis to stop animation flicker</li>
+            <li>Jump and landing suppressed at the water's edge; natural buoyancy at the surface</li>
+          </ul>
+          <div class="tags"><span>IK Retargeting</span><span>Physics Volumes</span><span>Character animation</span></div>
+        </div>
+        <div class="viewport" role="img" aria-label="Placeholder for swimming clip">
+          <div class="hud"><span>▶ swimming.mp4</span><span>00:30</span></div>
+          <div class="slot"><strong>Add a 30 second clip</strong><span>Walk into the water, swim, float at the surface, climb back out without a false landing.</span></div>
+        </div>
+      </article>
+
+      <article class="system">
+        <div class="body">
+          <p class="mono"><span class="badge">System 03</span> UI</p>
+          <h3>Modular, code driven menu system</h3>
+          <p>Instead of scattering raw buttons and text across every screen, every menu is built from two reusable widget classes and one base menu class, with settings owned by a subsystem.</p>
+          <ul>
+            <li><code>MenuButtonBase</code> and <code>MenuTextBase</code>: styled once, reused everywhere, with live editor preview via <code>NativePreConstruct()</code></li>
+            <li><code>BaseMenuWidget</code> handles input mode, cursor, click and hover sounds, and music that persists across menu changes</li>
+            <li><code>GameSettingsSubsystem</code>, a <code>UWorldSubsystem</code>, owns audio, graphics and gameplay settings</li>
+          </ul>
+          <div class="tags"><span>UMG</span><span>Subsystems</span><span>Designer friendly tooling</span></div>
+        </div>
+        <div class="viewport" role="img" aria-label="Placeholder for menu system clip">
+          <div class="hud"><span>▶ menus.mp4</span><span>00:20</span></div>
+          <div class="slot"><strong>Add a short clip or screenshot</strong><span>Move between menus with music continuing, then change a setting.</span></div>
+        </div>
+      </article>
+
+      <article class="system">
+        <div class="body">
+          <p class="mono"><span class="badge">System 04</span> Character</p>
+          <h3>Animation states and camera</h3>
+          <p>Character animation states implemented fully in C++, with a camera system that switches between first person and third person view.</p>
+          <div class="tags"><span>C++ AnimInstance</span><span>Camera</span></div>
+        </div>
+        <div class="viewport" role="img" aria-label="Placeholder for camera clip">
+          <div class="hud"><span>▶ camera.mp4</span><span>00:15</span></div>
+          <div class="slot"><strong>Add a short clip</strong><span>Toggle the camera mid movement to show the transition.</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section invert">
+  <div class="wrap">
+    <div class="head">
+      <div class="title">
+        <p class="eyebrow">Studio work · 02</p>
+        <h2>Khrönmière Entertainment<br>Project Adam</h2>
+      </div>
+      <p>A stealth survival game where leadership is the core mechanic, coming in 2027. I work on tooling, testing and animation systems.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <p class="eyebrow">Automated testing</p>
+        <h3>Reachability functional test</h3>
+        <p>Checks automatically that every interactable in a level can physically be reached by the player, before anyone tests it by hand.</p>
+        <ul>
+          <li>Four traces per actor, relative to its local rotation, so the test works however a designer places it</li>
+          <li>Fixed intermediate interactables blocking traces to farther targets on large maps</li>
+          <li>Documentation of setup, failure interpretation, known limits and confidence estimates</li>
+        </ul>
+        <div class="tags"><span>Functional Testing</span><span>Line traces</span><span>QA tooling</span></div>
+      </article>
+      <article class="card">
+        <p class="eyebrow">Animation</p>
+        <h3>Motion Matching integration</h3>
+        <p>Integrating Epic's Game Animation Sample (GASP) into an existing stealth action codebase, including a migration to UE 5.8.</p>
+        <ul>
+          <li>Three Pose Search Databases (crouch, jump, locomotion) on a shared schema</li>
+          <li>Ported a Blueprint animation function to thread safe C++: trajectory prediction, angle bucketing, curve sampling</li>
+          <li>Isolated a runtime crash by systematic bisection</li>
+          <li>Running both integration directions as an A/B comparison</li>
+        </ul>
+        <div class="tags"><span>Motion Matching</span><span>Pose Search</span><span>UE 5.8</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="method" class="section">
+  <div class="wrap">
+    <div class="head">
+      <div class="title">
+        <p class="eyebrow">How I work · 03</p>
+        <h2>Hypothesis, test, then ship</h2>
+      </div>
+    </div>
+    <div class="method">
+      <div><span class="n">01</span><h3>Read the source</h3><p>When documentation runs out, I read Unreal's engine source to get exact signatures and behaviour instead of guessing.</p></div>
+      <div><span class="n">02</span><h3>Bisect, don't assume</h3><p>Crashes get isolated systematically: disable half, test, disable a quarter, test, until the real cause is pinned down.</p></div>
+      <div><span class="n">03</span><h3>Build to extend</h3><p>Base classes and subsystems so designers and future features plug in without rewriting what exists.</p></div>
+      <div><span class="n">04</span><h3>Test and document</h3><p>Automated checks with written limits and confidence levels, so the next person knows what a pass actually means.</p></div>
+    </div>
+    <blockquote>"Reading unfamiliar systems carefully, forming a hypothesis, testing it, and being willing to be wrong before finding what's actually true."<cite>On what the job actually looks like</cite></blockquote>
+  </div>
+</section>
+
+<section id="projects" class="section games-section">
+  <div class="wrap">
+    <div class="head">
+      <div class="title">
+        <p class="eyebrow">Personal projects · 04</p>
+        <h2>Playable on itch.io</h2>
+      </div>
+      <p>Solo projects built in Unreal Engine 5, each with a downloadable Windows build.</p>
+    </div>
+    <div class="games">
+      <article class="game">
+        <p class="mono">UE5 · In development</p>
+        <h3>Quantum Leap</h3>
+        <p>A momentum based third person shooter built around rocket jumping, with an impact landing that defeats enemies in a radius around the landing zone, set in a large skatepark style sandbox.</p>
+        <div class="links"><a href="https://www.youtube.com/watch?v=2Ple1-9470Y" target="_blank" rel="noopener">Watch ↗</a><a href="https://loske.itch.io/quantum-leap" target="_blank" rel="noopener">Play ↗</a></div>
+      </article>
+      <article class="game">
+        <p class="mono">UE 5.4 · Rookie of the Year 2025 entry</p>
+        <h3>Cosmic Hunt</h3>
+        <p>A first person horror demo aboard the abandoned ship Artemis, mixing exploration, puzzles and survival. Supports keyboard, mouse and gamepad, with subtitles. About 30 minutes.</p>
+        <div class="links"><a href="https://www.youtube.com/watch?v=8JBDM1x6ZWI" target="_blank" rel="noopener">Watch ↗</a><a href="https://loske.itch.io/cosmic-hunt" target="_blank" rel="noopener">Play ↗</a></div>
+      </article>
+      <article class="game">
+        <p class="mono">UE5 · Version 3.0</p>
+        <h3>Interactive Resume</h3>
+        <p>My resume as a third person game: explore the map and open doors to discover my skills, knowledge and experience.</p>
+        <div class="links"><a href="https://loske.itch.io/stefanos-resume" target="_blank" rel="noopener">Play ↗</a></div>
+      </article>
+      <article class="game">
+        <p class="mono">UE5 · Early development</p>
+        <h3>Insomnia</h3>
+        <p>A cosy top down adventure with puzzles, hack and slash combat and magical chores like clearing debris and organising artefacts.</p>
+        <div class="links"><a href="https://www.youtube.com/watch?v=e34509Q9eOE" target="_blank" rel="noopener">Watch ↗</a><a href="https://loske.itch.io/insomnia" target="_blank" rel="noopener">Play ↗</a></div>
+      </article>
+    </div>
+    <p class="more">Also on itch.io: Ice Breaker, Fairy's Tale, DragonWordZ, Survival Project and an AR Animal Book scene in Unreal, plus Jurrassic Kart and Fantasy Kitties in Unity. <a href="https://loske.itch.io" target="_blank" rel="noopener">See all projects ↗</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="head">
+      <div class="title">
+        <p class="eyebrow">Toolkit · 05</p>
+        <h2>Skills</h2>
+      </div>
+    </div>
+    <div class="skills">
+      <div><h3>Languages</h3><ul><li>C++</li><li>Blueprints</li><li>C# (Unity)</li></ul></div>
+      <div><h3>Unreal Engine 5</h3><ul><li>Gameplay framework &amp; subsystems</li><li>Animation, IK Rigs, Motion Matching</li><li>UMG / UI architecture</li><li>Functional testing</li></ul></div>
+      <div><h3>Practice</h3><ul><li>Debugging &amp; profiling crashes</li><li>Reading engine source</li><li>Technical documentation</li><li>Remote team collaboration</li></ul></div>
+      <div><h3>Education</h3><ul><li>Bachelor of Information Technology, Game Programming</li><li>CG Spectrum</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact · Press start</p>
+    <h2>Looking for a gameplay programmer?</h2>
+    <p>Based in Melbourne and open to on site, hybrid or remote roles across Australia.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/stefano-pruna-0228b349/" target="_blank" rel="noopener">Message me on LinkedIn ↗</a>
+      <a class="btn" href="https://loske.itch.io" target="_blank" rel="noopener">itch.io ↗</a>
+    </div>
+  </div>
+</section>
+<footer><span>Stefano Pruna · Gameplay &amp; Simulation Programmer</span><span>Melbourne, AU</span></footer>
+
+</body>
+</html>
